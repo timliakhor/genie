@@ -5,15 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sales portal (demo)</title>
   <style>
+    * { box-sizing: border-box; }
     body { margin: 0; font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; }
-    header { padding: 12px 20px; font-size: 18px; border-bottom: 1px solid #334155; }
-    iframe { display: block; border: 0; width: 100%; height: calc(100vh - 56px); }
+    header { height: 56px; padding: 0 20px; display: flex; align-items: center; font-size: 18px; border-bottom: 1px solid #334155; }
+    main { display: grid; grid-template-columns: 3fr 2fr; gap: 12px; padding: 12px; height: calc(100vh - 56px); }
+    section { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+    h2 { margin: 0 0 8px; font-size: 14px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .04em; }
+    iframe { flex: 1; width: 100%; border: 0; border-radius: 8px; background: #fff; }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; height: auto; }
+      iframe { height: 70vh; flex: none; }
+    }
   </style>
 </head>
 <body>
-  <header>Sales portal (demo): Genie embedded</header>
-  <iframe
-    src="https://dbc-65e42cfc-7fdd.cloud.databricks.com/embed/genie/rooms/01f1a9db8e511268953403b2589ef1d3?o=748596894277950"
-    allow="clipboard-write"></iframe>
+  <header>Sales portal (demo): dashboard and Genie embedded</header>
+  <main>
+    <section>
+      <h2>Dashboard</h2>
+      <iframe
+        src="https://dbc-65e42cfc-7fdd.cloud.databricks.com/embed/dashboardsv3/01f1b02c5fb3187a953146af5564bf62?o=748596894277950"></iframe>
+    </section>
+    <section>
+      <h2>Ask Genie</h2>
+      <iframe
+        src="https://dbc-65e42cfc-7fdd.cloud.databricks.com/embed/genie/rooms/01f1a9db8e511268953403b2589ef1d3?o=748596894277950"
+        allow="clipboard-write"></iframe>
+    </section>
+  </main>
 </body>
 </html>
